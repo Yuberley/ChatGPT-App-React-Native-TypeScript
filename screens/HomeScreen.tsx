@@ -10,7 +10,7 @@ const HomeScreen = () => {
 	return (
 		<Layout>
 			<ListMessage />
-      <InputMessage />
+      		<InputMessage />
 		</Layout>
 	);
 };

@@ -17,7 +17,7 @@ export default function App() {
           name="Home" 
           component={HomeScreen} 
           options={ ({ navigation }) => ({ 
-              title: 'ChatGPT Application',
+              title: 'ChatGPT AI',
               headerStyle: { backgroundColor: '#222f3e' },
               headerTitleStyle: { color: '#fff' },
               headerTintColor: '#fff',

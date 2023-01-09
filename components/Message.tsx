@@ -1,5 +1,6 @@
 import React from 'react';
-import { StyleSheet, Text, View, TouchableOpacity, Image } from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity, ToastAndroid, Image } from 'react-native';
+import * as Clipboard from 'expo-clipboard';
 
 type MessageProps = {
 	message: {
@@ -14,12 +15,20 @@ type MessageProps = {
 };
 
 const Message = ({ message }: MessageProps) => {
+
+	const copyToClipboard = async  () => {
+		await Clipboard.setStringAsync(message.text);
+		ToastAndroid.show('Copied to clipboard', ToastAndroid.SHORT);
+	};
+
 	return (
 		<View style={ message.user.name === 'you' ? styles.messageyou : styles.messagechatgpt }>
-			<TouchableOpacity>
+			<View style={styles.profile}>
+				<Image style={styles.Image} source={{ uri: message.user.avatar }} />
 				<Text style={styles.author}>{message.user.name}</Text>
+			</View>
+			<TouchableOpacity onPress={() => copyToClipboard()}>
 				<Text style={styles.text}>{message.text}</Text>
-				<Image source={{ uri: message.user.avatar }} />
 			</TouchableOpacity>
 		</View>
 	);
@@ -39,15 +48,26 @@ const styles = StyleSheet.create({
 		padding: 10,
 		margin: 10,
 		borderRadius: 10,
-		textAlign: 'right',
-	},
-	author: {
-		color: '#fff',
-		fontSize: 12,
-    fontStyle: 'italic',
+		alignSelf: 'flex-end',
 	},
 	text: {
 		color: '#fff',
 		fontSize: 16,
+		alignSelf: 'flex-end',
+	},
+	profile: {
+		flexDirection: 'row',
+		alignItems: 'center',
+		marginBottom: 5,
+	},
+	author: {
+		color: '#fff',
+		fontSize: 12,
+		marginLeft: 8,
+	},
+	Image: {
+		width: 25,
+		height: 25,
+		borderRadius: 8,
 	},
 });
