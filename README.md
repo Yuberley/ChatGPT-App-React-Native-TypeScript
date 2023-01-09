@@ -6,7 +6,7 @@
   
 
 ### Screens 🎴
-![()](https://github.com/Yuberley/ChatGPT-App-React-Native-TypeScript/blob/main/others/screenshot.png)
+![()](https://github.com/Yuberley/ChatGPT-App-React-Native-TypeScript/blob/main/others/screen.png)
   
 
 # Getting Started with React Native Application
