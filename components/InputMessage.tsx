@@ -1,9 +1,17 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { StyleSheet, Text, View, TextInput, TouchableOpacity } from 'react-native';
-import { FontAwesome } from '@expo/vector-icons'; 
+import { FontAwesome } from '@expo/vector-icons';
+
+import { DataContext } from '../context/DataProvider';
 
 const InputMessage = () => {
+
+	const { setTextInput } = useContext<any>(DataContext);
 	const [text, setText] = useState<string>('');
+
+	const handleSendMessage = () => {
+		setTextInput(text);
+	};
 
 	return (
 		<View style={styles.inputMessage}>
@@ -12,7 +20,7 @@ const InputMessage = () => {
 				onChangeText={(text) => setText(text)}
 				value={text}
 			/>
-			<TouchableOpacity style={styles.button} onPress={() => alert(text)}>
+			<TouchableOpacity style={styles.button} onPress={() => handleSendMessage()}>
 				<FontAwesome name="send" size={24} color="white" />
 			</TouchableOpacity>
 		</View>

@@ -1,28 +1,28 @@
-import React from 'react'
-import { StyleSheet, View, StatusBar } from 'react-native'
+import React from 'react';
+import { StyleSheet, View, StatusBar } from 'react-native';
 
 interface Props {
-  children: React.ReactNode
+	children: React.ReactNode;
 }
 
 const Layout = ({ children }: Props) => {
-  return (
-    <View style={styles.container}>
-      <StatusBar backgroundColor={'#222f3e'} barStyle={'light-content'} />
-      {children}
-    </View>
-  )
-}
+	return (
+		<View style={styles.container}>
+			<StatusBar backgroundColor={'#222f3e'} barStyle={'light-content'} />
+			{children}
+		</View>
+	);
+};
 
-export default Layout
+export default Layout;
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    paddingTop: 5,
-    paddingBottom: 35,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#222f3e',
-  },
-})
+	container: {
+		flex: 1,
+		paddingTop: 5,
+		paddingBottom: 35,
+		justifyContent: 'center',
+		alignItems: 'center',
+		backgroundColor: '#222f3e',
+	},
+});

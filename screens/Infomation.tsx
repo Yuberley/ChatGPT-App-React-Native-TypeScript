@@ -1,5 +1,5 @@
-import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
+import { StyleSheet, Text, View, SliderComponent } from 'react-native'
 
 const Infomation = () => {
   return (
