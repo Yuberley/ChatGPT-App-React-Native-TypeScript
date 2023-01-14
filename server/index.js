@@ -20,6 +20,8 @@ app.get('/', (req, res) => {
 	res.send('Hello World!');
 });
 
+const idRandonAvatar = Math.floor(Math.random() * 100);
+
 app.post('/api/chat', async (req, res) => {
 	const { message, model, max_tokens, temperature } = req.body;
 
@@ -45,8 +47,12 @@ app.post('/api/chat', async (req, res) => {
 			id: response.data.id,
 			create: response.data.created,
 			model: response.data.model,
-			text: response.data.choices[0].text,
+			text: response.data.choices[0].text.replace("\n\n", ""),
 			usage: response.data.usage,
+			user: {
+				name: 'chatgpt',
+				avatar: 'https://i.pravatar.cc/100?img=' + idRandonAvatar,
+			}
 		}
 
 		res.json({

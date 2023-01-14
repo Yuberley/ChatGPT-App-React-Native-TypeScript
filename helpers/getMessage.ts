@@ -7,9 +7,9 @@ export const getMessage = async (message: string) => {
 
     const body = {
         model: 'text-davinci-003',
-        message: message,
-        max_tokens: 100,
-        temperature: 0.5,
+        message: message || '',
+        max_tokens: 1000,
+        temperature: 0.5
     };
 
     const fetchMessage = async (): Promise<MessageType> => {
@@ -18,11 +18,10 @@ export const getMessage = async (message: string) => {
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify(body),
+            body: JSON.stringify(body)
         });
-        const { data } = await response.json();
 
-        console.log('getMessageOutput: ', data.text );
+        const { data } = await response.json();
 
         return data;
     };

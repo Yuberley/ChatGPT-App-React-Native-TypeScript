@@ -1,7 +1,8 @@
 import React, { useState, useContext, useEffect } from 'react';
 import { StyleSheet, View, FlatList, RefreshControl } from 'react-native';
+import uuid from 'react-uuid';
 
-import { messagesData } from '../data/messages';
+// import { messagesData } from '../data/messages';
 import { useFetchMessage } from '../hooks/useFetchMessage';
 import Message from './Message';
 import { DataContext } from '../context/DataProvider';
@@ -10,20 +11,31 @@ import { MessageType } from '../types/types';
 
 const ListMessage = () => {
 
-	const [messages, setMessages] = useState<MessageType[]>(messagesData);
-
-	const { textInput } = useContext<any>(DataContext);
+	const [messages, setMessages] = useState<MessageType[]>([]);
+	console.log('messagesSide', messages.length);
 	
-	const { data } = useFetchMessage(textInput);
+	const { textInput } = useContext<any>(DataContext);
+
+	console.log('textInput', textInput.text);
+	
+	const { data, isLoading } = useFetchMessage(textInput.text);
+
+	console.log('getMessageOutput: ', data.text );
+
 	useEffect(() => {
-		if (data) {
+		
+		if (textInput?.text) {
+			setMessages((messages) => [...messages, textInput]);
+		}
+
+		if (!!data?.text) {
 			setMessages((messages) => [...messages, data]);
 		}
-	}, [data]);
 
-	const renderMessages = () => {
-		return messages.map((message) => <Message key={message.id} message={message} />);
-	};
+	}, [data, data.text]);
+	
+	console.log('messagesDown', messages.length);
+	console.log('isLoading', isLoading);
 
 	return (
 		<View>

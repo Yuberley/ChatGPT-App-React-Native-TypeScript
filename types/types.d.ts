@@ -10,7 +10,7 @@ interface Usage {
     total_tokens: number;
 }
 
-export type MessageType = {
+export interface MessageType {
     id: string;
     create: number;
     model: string;

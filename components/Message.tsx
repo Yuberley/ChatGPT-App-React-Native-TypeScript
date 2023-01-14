@@ -1,6 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, View, TouchableOpacity, ToastAndroid, Image } from 'react-native';
 import * as Clipboard from 'expo-clipboard';
+
 import { MessageType } from '../types/types';
 
 type MessageProps = {
@@ -17,7 +18,7 @@ const Message = ({ message }: MessageProps) => {
 	return (
 		<View style={ message.user.name === 'you' ? styles.messageyou : styles.messagechatgpt }>
 			<View style={styles.profile}>
-				<Image style={styles.Image} source={{ uri: message?.user.avatar }} />
+				<Image style={styles.Image} source={{ uri: message.user.avatar }} />
 				<Text style={styles.author}>{message.user.name}</Text>
 			</View>
 			<TouchableOpacity onPress={() => copyToClipboard()}>

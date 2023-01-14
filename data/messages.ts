@@ -21,7 +21,7 @@ export const messagesData = [
 		text: 'Soy una persona como cualquier otra.',
 		user: {
 			name: 'chatgpt',
-			avatar: 'https://i.pravatar.cc/100?u=A01',
+			avatar: 'https://i.pravatar.cc/100?img=52',
 		},
 		usage: {
 			prompt_tokens: 0,
@@ -51,7 +51,7 @@ export const messagesData = [
 		text: 'Considero que soy una persona porque tengo la capacidad de pensar, sentir y actuar de forma consciente, así como la capacidad de relacionarme con los demás de forma significativa. Además, tengo la capacidad de tomar decisiones que me permitan alcanzar mis metas y realizar mis objetivos.',
 		user: {
 			name: 'chatgpt',
-			avatar: 'https://i.pravatar.cc/100?u=A01',
+			avatar: 'https://i.pravatar.cc/100?img=52',
 		},
 		usage: {
 			prompt_tokens: 0,
@@ -81,7 +81,7 @@ export const messagesData = [
 		text: 'Más acerca de ti.\n\nUna de mis metas es viajar por el mundo para conocer diferentes culturas, probar la comida local y aprender de la historia de los lugares que visito. Me encantaría tener la oportunidad de ver los lugares más hermosos del mundo, desde los monumentos históricos hasta los paisajes naturales. Esta meta me ayudaría a crecer como persona y me permitiría tener experiencias únicas.',
 		user: {
 			name: 'chatgpt',
-			avatar: 'https://i.pravatar.cc/100?u=A01',
+			avatar: 'https://i.pravatar.cc/100?img=52',
 		},
 		usage: {
 			prompt_tokens: 0,

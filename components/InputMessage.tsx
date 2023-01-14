@@ -1,6 +1,9 @@
 import React, { useState, useContext } from 'react';
-import { StyleSheet, Text, View, TextInput, TouchableOpacity } from 'react-native';
+import uuid from 'react-uuid';
 import { FontAwesome } from '@expo/vector-icons';
+import { StyleSheet, Text, View, TextInput, TouchableOpacity } from 'react-native';
+
+import { MessageType } from '../types/types';
 
 import { DataContext } from '../context/DataProvider';
 
@@ -10,7 +13,25 @@ const InputMessage = () => {
 	const [text, setText] = useState<string>('');
 
 	const handleSendMessage = () => {
-		setTextInput(text);
+
+		if (!text.trim()) return;
+
+		setTextInput({
+			id: uuid(),
+			create: new Date().getTime(),
+			model: 'youchat',
+			text: text.trim(),
+			user: {
+				name: 'you',
+				avatar: 'https://i.pravatar.cc/100?u=A08',
+			},
+			usage: {
+				prompt_tokens: 0,
+				completion_tokens: 0,
+				total_tokens: 0,
+			},
+		});
+		setText('');
 	};
 
 	return (

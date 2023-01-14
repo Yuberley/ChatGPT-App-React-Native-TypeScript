@@ -1,5 +1,7 @@
 import React, { useState,createContext } from 'react';
 
+import { MessageType } from '../types/types';
+
 export const DataContext = createContext({});
 
 interface Props {
@@ -8,7 +10,7 @@ interface Props {
 
 export const DataProvider = ({ children }: Props) => {
 
-  const [textInput, setTextInput] = useState<string>('');
+  const [textInput, setTextInput] = useState<MessageType>({} as MessageType);
 
   return (
     <DataContext.Provider value={{ textInput, setTextInput }}>
